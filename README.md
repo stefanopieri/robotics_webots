@@ -1,6 +1,6 @@
 # Braitenberg vehicle in WeBots
 
-# Introduction
+## Introduction
 The aim of the project is to develop a Braitenberg vehicle that is able to  interact with an environment to achieve a goal. 
 The project was developed in the WeBots environment.
 

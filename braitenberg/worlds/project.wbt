@@ -1,0 +1,475 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.9999882775697616 -0.004249905895281642 0.0023201342510056912 1.5165722511639486
+  position -0.11708853962990824 6.8030563544452685 0.4179182693918542
+}
+TexturedBackground {
+}
+RectangleArena {
+  floorSize 2 5
+}
+DEF box_2 Solid {
+  translation -0.8 0 0
+  children [
+    DEF box-shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.4 0.1
+        metalness 0
+        IBLStrength 5
+      }
+      geometry Box {
+        size 0.4 0.4 0.4
+      }
+    }
+  ]
+  name "solid_3(1)"
+  model "treasure"
+  boundingObject USE box-shape
+  physics Physics {
+  }
+  locked TRUE
+  recognitionColors [
+    0.5 0.4 0.1
+  ]
+  translationStep 0
+  rotationStep 0
+}
+DEF box_3 Solid {
+  translation 0.155 0.0937216 -1.55
+  rotation -3.949755880331578e-17 0.9999999999999999 -1.9617297441344175e-17 3.14
+  children [
+    DEF box-shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.4 0.1
+        metalness 0
+        IBLStrength 5
+      }
+      geometry Box {
+        size 0.2 0.2 0.4
+      }
+    }
+  ]
+  name "solid_3"
+  model "treasure"
+  boundingObject USE box-shape
+  physics Physics {
+  }
+  locked TRUE
+  recognitionColors [
+    0.5 0.4 0.1
+  ]
+  translationStep 0
+  rotationStep 0
+}
+DEF box Solid {
+  translation 0.7 0.1394051999999999 -2
+  rotation -1.4306274644700752e-20 0.9999999999999999 -1.7965327442430465e-17 3.1400000000000006
+  children [
+    DEF box-shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.9999 0.8398 0
+        metalness 0
+        IBLStrength 5
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+  model "treasure"
+  boundingObject USE box-shape
+  physics Physics {
+  }
+  locked TRUE
+  recognitionColors [
+    0.9999 0.8398 0
+  ]
+  translationStep 0
+  rotationStep 0
+}
+DEF init_dor_r Solid {
+  translation 0.07602471311264665 0.08822799785015377 3.7724682529396887
+  rotation -0.031241710617416787 0.031241495058845162 -0.9990234854617711 1.5717802180036409
+  children [
+    DEF init_door_r TexturedBoxShape {
+      size 0.2 0.1 1.5
+      faceColor 1 1 1
+    }
+  ]
+  name "init_door_r"
+  boundingObject USE init_door_r
+  physics Physics {
+  }
+  locked TRUE
+}
+DEF init_dor_l Solid {
+  translation -0.8990480844821911 0.08822799785015377 3.793590036615887
+  rotation -0.0315992343505691 0.03159901632518936 -0.9990009962736466 1.5718027294164834
+  children [
+    DEF init_door_l TexturedBoxShape {
+      size 0.2 0.1 1.5
+      faceColor 1 1 1
+    }
+  ]
+  name "init_door_l"
+  boundingObject USE init_door_l
+  physics Physics {
+  }
+}
+DEF pl2 PointLight {
+  attenuation 0 0 1
+  location 0 0.3 -0.8
+  radius 0.4
+}
+Robot {
+  translation 0.5060485474515122 0.03972070127195105 1.875851258070563
+  rotation 1.0493885122427247e-05 0.9999999986237467 5.14041345235213e-05 3.1097777251610443
+  children [
+    DEF gps_b GPS {
+      translation 0 0.03 -0.07
+      rotation 0 1 0 3.14
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.3 0.2
+            metalness 0
+            IBLStrength 4
+          }
+          geometry Cylinder {
+            height 0.01
+            radius 0.01
+          }
+        }
+      ]
+      name "gps_b"
+    }
+    DEF ds_l_side_f DistanceSensor {
+      translation 0.05 -0.01 0.1
+      children [
+        DEF shape Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_l_side_f"
+      lookupTable [
+        0 0 0
+        0.5 1000 0
+      ]
+    }
+    DEF ds_l_side_b DistanceSensor {
+      translation 0.05 -0.01 -0.1
+      children [
+        DEF shape Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_l_side_b"
+      lookupTable [
+        0 0 0
+        0.5 1000 0
+      ]
+    }
+    DEF gps GPS {
+      translation 0 0.055 0.07
+      rotation 0 1 0 3.14
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.3 0.2
+            metalness 0
+            IBLStrength 4
+          }
+          geometry Cylinder {
+            height 0.01
+            radius 0.01
+          }
+        }
+      ]
+    }
+    DEF camera Camera {
+      translation 0 0 0.07
+      rotation 0 1 0 3.14
+      children [
+        Shape {
+          appearance PBRAppearance {
+            IBLStrength 4
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.01
+          }
+        }
+      ]
+      recognitionColors [
+        0.9 0.7 0
+        1 1 1
+      ]
+      fieldOfView 0.7854
+      recognition Recognition {
+        maxRange 500
+        maxObjects 1
+        segmentation TRUE
+      }
+    }
+    DEF ds_r_side_b DistanceSensor {
+      translation -0.05 -0.01 -0.1
+      rotation 0 1 0 -3.14
+      children [
+        DEF shape Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_r_side_b"
+      lookupTable [
+        0 0 0
+        0.5 1000 0
+      ]
+    }
+    DEF ds_r_side_f DistanceSensor {
+      translation -0.05 -0.01 0.1
+      rotation 0 1 0 -3.14
+      children [
+        DEF shape Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_r_side_f"
+      lookupTable [
+        0 0 0
+        0.5 1000 0
+      ]
+    }
+    DEF ds_l DistanceSensor {
+      translation 0.0375 -0.01 0.1
+      rotation 0 1 0 -1.57
+      children [
+        DEF shape Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_l"
+      lookupTable [
+        0 0 0
+        0.5 1000 0
+      ]
+    }
+    DEF ds_r DistanceSensor {
+      translation -0.0375 -0.01 0.1
+      rotation 0 1 0 -1.57
+      children [
+        DEF shape Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_r"
+      lookupTable [
+        0 0 0
+        0.5 1000 0
+      ]
+    }
+    DEF ls_l LightSensor {
+      translation 0.025 0 0.1
+      rotation 0 1 0 -1.57
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry DEF ls_r Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ls_l"
+      boundingObject USE ls_r
+      physics Physics {
+      }
+    }
+    DEF ls_r LightSensor {
+      translation -0.025 0 0.1
+      rotation 0 1 0 -1.57
+      children [
+        DEF ls_l Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ls_r"
+      boundingObject USE ls_l
+      physics Physics {
+      }
+    }
+    DEF BODY Shape {
+      appearance PBRAppearance {
+        baseColor 0.917647 0.145098 0.145098
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    DEF wheel_lf HingeJoint {
+      jointParameters DEF rm_lf HingeJointParameters {
+        position 501.8619283905283
+        anchor 0.06 0 0.05
+      }
+      device [
+        DEF rm_lf RotationalMotor {
+          name "wheel_lf"
+          maxVelocity 20
+        }
+      ]
+      endPoint DEF rm_lf Solid {
+        translation 0.06006524299225309 -5.112714545386342e-05 0.05003304051790186
+        rotation -0.999994814110635 -0.003193552049711009 -0.0004159052081216488 0.9979505789874981
+        children [
+          DEF WHEEL Transform {
+            rotation 0 0 1 1.5708
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.305882 0.898039 0.25098
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.02
+                  radius 0.04
+                  subdivision 24
+                }
+              }
+            ]
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheel_rf HingeJoint {
+      jointParameters DEF rm_rf HingeJointParameters {
+        position 610.5362340284095
+        anchor -0.06 0 0.05
+      }
+      device [
+        DEF rm_rf RotationalMotor {
+          name "wheel_rf"
+          maxVelocity 20
+        }
+      ]
+      endPoint DEF rm_rf Solid {
+        translation -0.06007595905555392 4.036716953237556e-05 0.04996232204559224
+        rotation 0.9999002405084206 0.010461011982249798 -0.009490851358520465 0.8492047103170364
+        children [
+          USE WHEEL
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheel_lb HingeJoint {
+      jointParameters DEF rm_lb HingeJointParameters {
+        position 501.9893845444806
+        anchor 0.06 0 -0.05
+      }
+      device [
+        DEF rm_lb RotationalMotor {
+          name "wheel_lb"
+          maxVelocity 20
+        }
+      ]
+      endPoint DEF rm_lb Solid {
+        translation 0.060076031939110514 5.262003477321834e-05 -0.05002059795521227
+        rotation -0.9999933190828316 -0.0036474726934166857 -0.00024027620098218168 0.8704952241043781
+        children [
+          USE WHEEL
+        ]
+        name "solid(2)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF wheel_rb HingeJoint {
+      jointParameters DEF rm_rb HingeJointParameters {
+        position 610.6647182854998
+        anchor -0.06 0 -0.05
+      }
+      device [
+        DEF rm_rb RotationalMotor {
+          name "wheel_rb"
+          maxVelocity 20
+        }
+      ]
+      endPoint DEF rm_rb Solid {
+        translation -0.06006527064813739 -4.567289882305261e-05 -0.04995895789589594
+        rotation 0.9999232258438266 0.008623693837768657 -0.00889799542975186 0.977677686438989
+        children [
+          USE WHEEL
+        ]
+        name "solid(3)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+    density -1
+    mass 1
+  }
+  controller "my_controller"
+}
+DEF pl1 PointLight {
+  attenuation 0 0 1
+  intensity 0.7
+  location 0.375 0.2 0.6
+  radius 0.5
+}

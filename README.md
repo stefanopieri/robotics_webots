@@ -31,7 +31,11 @@ The Distance Sensors (DS) are used to detect obstacles frontally and laterally. 
 
 
 
-https://user-images.githubusercontent.com/49000357/123314110-7993bc80-d52a-11eb-92ea-182ec8c3a544.mp4
+
+
+https://user-images.githubusercontent.com/49000357/123314465-edce6000-d52a-11eb-9e40-6f09225fe8cf.mp4
+
+
 
 
 

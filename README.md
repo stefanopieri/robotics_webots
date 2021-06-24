@@ -15,11 +15,11 @@ The difference between objects and ghosts as obstacles is only given by how they
 ## Braitenberg Vehicle
 The vehicle is a four wheeled robot that incorporates a total of 11 sensors:
 
-● Two frontal LS
-● Two frontal DS
-● Four lateral DS, two for each side
-● Two GPS sensors
-● One Camera
+● Two frontal LS\
+● Two frontal DS\
+● Four lateral DS, two for each side\
+● Two GPS sensors\
+● One Camera\
 
 The Light Sensors are used to frontally detect ghosts. 
 The Distance Sensors (DS) are used to detect obstacles frontally and laterally. Also, the lateral DS pairs are used to stabilize the robot on a parallel trajectory when dealing with 'large' obstacles - such as in the case of the Arena walls. In this scenario, the trajectory is parallel up to a certain threshold value. In practice, with the current threshold value robot can move almost parallel to the walls or large objects.

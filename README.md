@@ -33,7 +33,7 @@ The Distance Sensors (DS) are used to detect obstacles frontally and laterally. 
 Distance sensors detect obstacles on both sides at near and very-near distance, making the robot respectively turn and rotate on the spot in the other direction. Ghost detection happens frontally via Light Sensors. When the sensors return a value higher than a LS_THRESHOLD, a ghost is detected.
 Until the goal has not been spotted by the camera, the robot explores the space by moving forward and eventually avoiding obstacles and ghosts. The goal is recognized when an object on camera makes the following conditions true:
 
-● Treasure’s model is “treasure” AND\ 
+● Treasure’s model is “treasure” AND\  
 ● Treasure’s color is gold
 
 Every time the goal is recognized, its position is saved in the GOAL_POSITION variable. Once the GOAL_POSITION is stored, the robot moves towards the goal. If the goal is detectable on camera, the goal’s coordinates are used to align the robot to the goal. Otherwise, the software calculates the equation of the line passing through the goal and the back GPS coordinates; then, it rotates the robot until the front GPS is aligned with the goal. In both cases, the front GPS must be closer than the back GPS to the treasure.

@@ -87,20 +87,20 @@ Here below the chart shows the travelling time vs smoothing factor
 The traveling time is lowest and constant for values in (0,1), because in such cases the resulting velocity exceeds the limit speed (MAX_VELOCITY set at 20) and the wheels speed is capped at 20. For values in [1, 4], traveling time grows linearly. For higher values, the chart shows oscillations around the trendline. As expected, the overall trend shows that time increases with the SMOOTHING_FACTOR, meaning that a lower wheel speed implies higher travelling times.
 
 ### LS threshold
+LS_THRESHOLD is the parameter used to detect ghosts. 
+In particular, if one sensor returns a value higher than LS_THRESHOLD, a ghost is detected.
+The chart below shows how travelling time and LS_THRESHOLD are related:
+
+<img width="535" alt="Schermata 2021-06-25 alle 20 02 54" src="https://user-images.githubusercontent.com/49000357/123467049-56cbdb80-d5f0-11eb-8c02-5b000885b198.png">
+
+If LS_THRESHOLD ≤ 300, the robot loops and is unable to reach the goal. For such values, the ghost is detected from too far and the robot is not able to move further towards the treasure. The performances improve significantly for LS_THRESHOLD ≥ 400, with the robot able to converge to goal. Interestingly, the minimum travelling time is found at LS_THRESHOLD=700.
 
 ## Video Simulation
-
-
-
+In this section, some videos of the simulations carried out are presented
 
 
 https://user-images.githubusercontent.com/49000357/123314465-edce6000-d52a-11eb-9e40-6f09225fe8cf.mp4
 
-
-
-
-
-... work in progess ...
 
 ## Conclusions
 ### Achievements

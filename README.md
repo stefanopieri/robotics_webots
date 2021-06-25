@@ -50,9 +50,15 @@ It is possible to notice that the robot usually takes two routes. They are calle
 
 ![route_images](https://user-images.githubusercontent.com/49000357/123437485-00e73b80-d5d0-11eb-9b42-9fbfa47c13d6.jpg)
 
+## Analysis
+The aim of this section is to provide a performance analysis of what is developed. In particular, a visual analysis of the impact of the model's parameters on the performance of the robot is proposed, with the idea of understanding how parameters impact the quality of the travel. To better understand the latter aspect, the simulation was launched after varying the value of one parameter at a time.
+The performance metric used to assess the quality of the parameters set is the time in seconds to reach the treasure - also referred to as travelling time. 
 
+### Alignment threshold
 
-... work in progess ...
+### Smoothing factor
+
+### LS threshold
 
 ## Video Simulation
 
@@ -82,10 +88,10 @@ Two ideas are considered to improve on this aspect:
 - save past trajectories in memory and vary the current trajectory in order not to explore the same areas two times
 - insert random variations in the trajectory
 
-Also, no research was made to find the optimal parameters for object and ghost detection; this aspect could concur to creating trajectory loops.
+Also, no research was made to find the optimal parameters for object and ghost detection; this aspect could contribute to the creation of loops.
 
 Moreover, other sensors can be added to the current implementation and can help stabilizing the trajectory. 
-Lastly, the current implementation focuses exclusively on controlling the interactions with the environment. An effective control on the actual behaviour is not present, as the control happens with an open loop and no feedbacks are used. Future development will focus on implementing more robust control strategies, such as in the case of closed loop / PID systems.
+Lastly, the current implementation focuses exclusively on controlling the interactions with the environment. An effective control on the actual behaviour is not present, as the control happens with an open loop and no feedbacks are used. Future development will focus on implementing more robust control strategies, such as closed loop / PID control strategies.
 
 ## References
 

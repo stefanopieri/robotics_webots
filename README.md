@@ -31,6 +31,11 @@ DS are used to detect obstacles frontally and laterally. Also, the lateral DS pa
 
 ... work in progess ...
 
+#### 1. Steering Operations
+
+... work in progress ...
+
+#### 2. Obstacle and Treasure Detection
 DS detect obstacles on both sides at near and very-near distance, making the robot respectively turn and rotate on the spot in the opposite direction. Ghost detection happens only frontally, so when the LS return a value higher than LS_THRESHOLD a ghost is detected.
 Until the goal has not been spotted by the camera, the robot explores the space by moving forward and eventually avoiding obstacles and ghosts. The treasure is recognized when an object on camera makes the following conditions true:
 
@@ -38,6 +43,10 @@ Until the goal has not been spotted by the camera, the robot explores the space 
 - Treasure’s color is gold
 
 Every time the goal is recognized, its position is saved in the GOAL_POSITION variable. Once the GOAL_POSITION is stored, the robot moves towards the goal. If the goal is detectable on camera, the goal’s coordinates are used to align the robot to the goal. Otherwise, the software calculates the equation of the line passing through the goal and the back GPS coordinates; then, it rotates the robot until the front GPS is aligned with the goal. In both cases, the front GPS must be closer than the back GPS to the treasure.
+
+#### 3. Alignment with the Treasure
+
+... work in progress ...
 
 ## The Arena
 
@@ -55,6 +64,14 @@ The aim of this section is to provide a performance analysis of what is develope
 The performance metric used to assess the quality of the parameters set is the time in seconds to reach the treasure - also referred to as travelling time. 
 
 ### Alignment threshold
+The ALIGNMENT_THRESHOLD parameter defines an acceptance limit for the robot-goal alignment.
+It is used to set alignment in both cases if the treasure is framed and not framed by the camera. The necessary condition for alignment is to know the trasure's position and it is reasonable to consider this parameter more critical in situations in which the treasure is not framed.
+Here below a graphics that depicts the travelling time vs smoothing factor.
+
+<img width="542" alt="Schermata 2021-06-25 alle 16 42 46" src="https://user-images.githubusercontent.com/49000357/123441638-60dfe100-d5d4-11eb-8fdb-f3e85c48466a.png">
+
+If ALIGNMENT_THRESHOLD < 0.05 and 0.2 ≤ ALIGNMENT_THRESHOLD ≤ 0.25, the robot finds the treasure and performances range from 25 to 29 s. For 0.05 < ALIGNMENT_THRESHOLD < 0.2, the time leaps by approximately 10 s due to the presence of an additional trajectory loop in the last part of the route.
+Lastly, for ALIGNMENT_THRESHOLD ≥ 0.3, the robot fails to converge to the goal in less than 100 s. As one may expect, higher alignment tolerance implies a failure in convergence. However, it is unclear why travelling time is higher in the range 0.05 - 0.2.
 
 ### Smoothing factor
 

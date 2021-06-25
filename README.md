@@ -56,6 +56,25 @@ https://user-images.githubusercontent.com/49000357/123314465-edce6000-d52a-11eb-
 
 ... work in progess ...
 
+## Conclusions
+### Achievements
+The current implementation is able to successfully interact with a fairly complex environment and is able to achieve the desired goal. 
+One of the aims of the project is to explore the ability to interact with different kinds of obstacles and the current implementation shows acceptable results. As one may expect, it was shown that the robot is able to converge to the treasure only if the model’s parameters do not take 'pathological' values. Also, it is shown that using a 'good' set of parameters can significantly decrease the travelling time. 
+
+### Future Improvements
+Several limits of this project are known. Many aspects can be improved and will be object of future development. The camera is set to recognize only one object at a time and it recognizes only the nearest object. Significant improvements should be achieved once the ability to recognize all the framed object is implemented. 
+
+Space exploration without knowing the tresure's position is not optimized and can lead to trajectory loops, as the current control code makes the robot go straight. Such an approach can lead to issues when dealing with more complex environments.
+Two ideas are considered to improve on this aspect: 
+
+- save past trajectories in memory and vary the current trajectory in order not to explore the same areas two times
+- insert random variations in the trajectory
+
+Also, no research was made to find the optimal parameters for object and ghost detection; this aspect could concur to creating trajectory loops.
+
+Moreover, other sensors can be added to the current implementation and can help stabilizing the trajectory. 
+Lastly, the current implementation focuses exclusively on controlling the interactions with the environment. An effective control on the actual behaviour is not present, as the control happens with an open loop and no feedbacks are used. Future development will focus on implementing more robust control strategies, such as in the case of closed loop / PID systems.
+
 ## References
 https://github.com/KajalGada/Youtube-Tutorial-Download-Material
 

@@ -74,6 +74,17 @@ If ALIGNMENT_THRESHOLD < 0.05 and 0.2 ≤ ALIGNMENT_THRESHOLD ≤ 0.25, the robo
 Lastly, for ALIGNMENT_THRESHOLD ≥ 0.3, the robot fails to converge to the goal in less than 100 s. As one may expect, higher alignment tolerance implies a failure in convergence. However, it is unclear why travelling time is higher in the range 0.05 - 0.2.
 
 ### Smoothing factor
+The smoothing factor is a parameter used to set wheels velocity, and in particular it is used to divide the maximum velocity in the
+setVelocity method. In fact, the speed of the k-th wheel is set as following:\
+wheel[k].setVelocity(MAX_VELOCITY / SMOOTHING_FACTOR)
+
+In practice, the smoothing factor is used to control the wheel's velocity.
+In fact, according to the previous formula, the higher the smoothing factor the lower the wheel velocity.
+Here below the chart shows the travelling time vs smoothing factor
+
+<img width="539" alt="Schermata 2021-06-25 alle 18 22 22" src="https://user-images.githubusercontent.com/49000357/123455675-4ad91d00-d5e2-11eb-850e-ab45b4eb859d.png">
+
+The traveling time is lowest and constant for values in (0,1), because in such cases the resulting velocity exceeds the limit speed (MAX_VELOCITY set at 20) and the wheels speed is capped at 20. For values in [1, 4], traveling time grows linearly. For higher values, the chart shows oscillations around the trendline. As expected, the overall trend shows that time increases with the SMOOTHING_FACTOR, meaning that a lower wheel speed implies higher travelling times.
 
 ### LS threshold
 

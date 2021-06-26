@@ -2,7 +2,7 @@
 
 ## Introduction
 The aim of the project is to develop a Braitenberg vehicle that is able to achieve a certain goal while interacting with an environment.
-The project was developed in the WeBots and the controller code is written in Python.
+The project is developed in WeBots and the controller code is written in Python.
 
 ## Overview
 The idea behind the project is to exploit a Braitenberg vehicle to simulate a treasure quest inside a haunted castle, which is represented by a Rectangle Arena. Some obstacles are put inside the castle and the robot is programmed to find the treasure while avoiding them. In terms of Braitenberg vehicles' basic behaviours, the robot is developed to act with 'fear' when it detects obstacles and with 'love' when it detects the treasure.
@@ -34,8 +34,8 @@ LS are used to frontally detect ghosts.
 DS are used to detect obstacles frontally and laterally. Also, the lateral DS pairs are used to stabilize the robot on a parallel trajectory when dealing with 'large' obstacles - such as in the case of the Arena walls. In this scenario, the trajectory is parallel up to a certain threshold value. In practice, with the current threshold value robot can move almost parallel to the walls or large objects.
 
 ### Controller Code
-
-... work in progess ...
+The robot is controlled via some code written in Python. 
+Some of the main aspects are exposed here below.
 
 #### 1. Steering Operations
 In the current implementation, the steering operations are:
@@ -159,7 +159,7 @@ Moreover, other sensors can be added to the current implementation. They could b
 Lastly, the current implementation focuses exclusively on controlling the interactions with the environment. An effective control on the actual behaviour is not present, as the control happens with an open loop and no feedbacks are used. Future development will focus on implementing more robust control strategies, such as closed loop / PID control strategies.
 
 ## References
-https://github.com/KajalGada/Youtube-Tutorial-Download-Material
+https://github.com/KajalGada/Youtube-Tutorial-Download-Material  
 https://cyberbotics.com/doc/reference
 
 ... work in progess ...

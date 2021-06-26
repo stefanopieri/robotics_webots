@@ -15,8 +15,14 @@ The treasure is a box with some peculiarities - its color is gold (RGB palette =
 
 ## Braitenberg Vehicle
 
-### Sensors Implemented 
-The vehicle is a four wheeled robot that incorporates a total of 11 sensors:
+### Vehicle Frame
+The vehicle is a classical four-wheeled robot.
+It was not created from scratch. After some tests in WeBots, the .proto file to generate frame and wheels was taken from an existing project at the following link:
+
+https://github.com/KajalGada/Youtube-Tutorial-Download-Material
+
+### Sensors 
+The vehicle incorporates a total of 11 sensors:
 
 - Two frontal LS
 - Two frontal DS
@@ -32,8 +38,10 @@ DS are used to detect obstacles frontally and laterally. Also, the lateral DS pa
 ... work in progess ...
 
 #### 1. Steering Operations
-
-... work in progress ...
+In the current implementation, the steering operations are:
+- Move Forward
+- Turn Left / Right
+- Turn on the spot Left / Right
 
 #### 2. Obstacle and Treasure Detection
 DS detect obstacles on both sides at near and very-near distance, making the robot respectively turn and rotate on the spot in the opposite direction. Ghost detection happens only frontally, so when the LS return a value higher than LS_THRESHOLD a ghost is detected.
@@ -45,8 +53,33 @@ Until the goal has not been spotted by the camera, the robot explores the space 
 Every time the goal is recognized, its position is saved in the GOAL_POSITION variable. Once the GOAL_POSITION is stored, the robot moves towards the goal. If the goal is detectable on camera, the goal’s coordinates are used to align the robot to the goal. Otherwise, the software calculates the equation of the line passing through the goal and the back GPS coordinates; then, it rotates the robot until the front GPS is aligned with the goal. In both cases, the front GPS must be closer than the back GPS to the treasure.
 
 #### 3. Alignment with the Treasure
+The alignment process takes instance once the robot has localized the treasure and every time it is not avoiding an obstacle.
+If the treasure is visible on camera, the robot just rotates in the direction of the last treasure's position saved.
+On the other hand, if the treasure is not visible on camera, the software makes more refined calculations. 
+in particular, it calculates the equation of the line passing by the treasure's position and the back GPS sensor on the XZ plane. 
+The equation has the form of a line:
 
-... work in progress ...
+z = mx + q
+
+Then, misalignment is calculated as:
+
+d(x, z) = z - mx - q
+
+It is easy to check that d = 0 if a point lays on the line of equation z = mx + q. 
+Then, the robot rotates on the spot until:
+
+d(x_front, z_front) = z_front - mx_front - q < ALIGNMENT_THRESHOLD
+
+where (x_front, z_front) are the coordinates of the front GPS on the XZ plane.
+The idea behind the previous formula is that the robot is aligned with the treasure when the coordinates of the front GPS belong to the line passing by the treasure and the back GPS, up to a certain threshold value.
+
+However, that's not enough, as the robot could have the right alignment but a wrong orientation.
+For this reason, the softwares calculates the euclidean distances between the treasure's position and both front / back GPS; then, it requires to have the front GPS closer to the treasure than the back GPS. This additional condition is enough to have the robot oriented towards the treasure. 
+
+#### 4. Log Message
+While the simulation runs, for every iteration the software logs out some information about sensors values, steering operations and the state of the robot.
+Such information was used as a debugging tool for development.
+
 
 ## The Arena
 
@@ -116,21 +149,21 @@ Two ideas are considered to improve on this aspect:
 - save past trajectories in memory and vary the current trajectory in order not to explore the same areas two times
 - insert random variations in the trajectory
 
-Also, no research was made to find the optimal parameters for object and ghost detection; this aspect could contribute to the creation of loops.
+Also, no research was made to find the optimal parameters for object and ghost detection. Considering that obstacle detection / avoidance is the main focus of the project, such an aspect could be critical. Suboptimal params sets could contribute to the creation of undesired trajectory loops and deteriorate the model's performance.
 
-Moreover, other sensors can be added to the current implementation and can help stabilizing the trajectory. 
+Moreover, other sensors can be added to the current implementation. They could be helpful for improving on a wide range of tasks, from stabilizing the trajectory to detecting the treasure. Some ideas are to introduce: 
+- two frontal DS, rotated by 45° outwards around the Y axis
+- back DS
+- lateral cameras 
+
 Lastly, the current implementation focuses exclusively on controlling the interactions with the environment. An effective control on the actual behaviour is not present, as the control happens with an open loop and no feedbacks are used. Future development will focus on implementing more robust control strategies, such as closed loop / PID control strategies.
 
 ## References
-
-
 https://github.com/KajalGada/Youtube-Tutorial-Download-Material
-
-
-
+https://cyberbotics.com/doc/reference
 
 ... work in progess ...
 
 ## Purpose
 This project was developed during the Robotics module of the MSc course in Artificial Intelligence offered by University of Huddersfield.
-As previously stated, the project is not finished and it could contain bugs.
+As previously stated, the project was not created for deployment into a production environment. As previously stated, the software is not finished and it could contain bugs. 

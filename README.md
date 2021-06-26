@@ -151,7 +151,7 @@ Two ideas are considered to improve on this aspect:
 
 Also, no research was made to find the optimal parameters for object and ghost detection. Considering that obstacle detection / avoidance is the main focus of the project, such an aspect could be critical. Suboptimal params sets could contribute to the creation of undesired trajectory loops and deteriorate the model's performance.
 
-Moreover, other sensors can be added to the current implementation. They could be helpful for improving on a wide range of tasks, from stabilizing the trajectory to detecting the treasure. Some ideas are to introduce: 
+Moreover, other sensors can be added to the current implementation. They could be helpful for improving on a wide range of tasks, from stabilizing the trajectory to detecting the treasure. Some ideas involve the introduction of: 
 - two frontal DS, rotated by 45° outwards around the Y axis
 - back DS
 - lateral cameras 

@@ -99,7 +99,8 @@ The performance metric used to assess the quality of the parameters set is the t
 ### Alignment threshold
 The ALIGNMENT_THRESHOLD parameter defines an acceptance limit for the robot-goal alignment.
 It is used to set alignment in both cases if the treasure is framed and not framed by the camera. The necessary condition for alignment is to know the trasure's position and it is reasonable to consider this parameter more critical in situations in which the treasure is not framed.
-Here below a graphics that depicts the travelling time vs smoothing factor.
+Here below a graphics that depicts the travelling time vs smoothing factor (SMOOTHING_PARAMETER = 1; LS_THRESHOLD = 800)
+.
 
 <img width="542" alt="Schermata 2021-06-25 alle 16 42 46" src="https://user-images.githubusercontent.com/49000357/123441638-60dfe100-d5d4-11eb-8fdb-f3e85c48466a.png">
 
@@ -113,7 +114,7 @@ wheel[k].setVelocity(MAX_VELOCITY / SMOOTHING_FACTOR)
 
 In practice, the smoothing factor is used to control the wheel's velocity.
 In fact, according to the previous formula, the higher the smoothing factor the lower the wheel velocity.
-Here below the chart shows the travelling time vs smoothing factor
+Here below the chart shows the travelling time vs smoothing factor (ALIGNMENT_THRESHOLD = 0.001; LS_THRESHOLD = 800).
 
 <img width="539" alt="Schermata 2021-06-25 alle 18 22 22" src="https://user-images.githubusercontent.com/49000357/123455675-4ad91d00-d5e2-11eb-850e-ab45b4eb859d.png">
 
@@ -122,7 +123,7 @@ The traveling time is lowest and constant for values in (0,1), because in such c
 ### LS threshold
 LS_THRESHOLD is the parameter used to detect ghosts. 
 In particular, if one sensor returns a value higher than LS_THRESHOLD, a ghost is detected.
-The chart below shows how travelling time and LS_THRESHOLD are related:
+The chart below shows how travelling time and LS_THRESHOLD are related (ALIGNMENT_THRESHOLD = 0.001; SMOOTHING_FACTOR = 1).
 
 <img width="535" alt="Schermata 2021-06-25 alle 20 02 54" src="https://user-images.githubusercontent.com/49000357/123467049-56cbdb80-d5f0-11eb-8c02-5b000885b198.png">
 

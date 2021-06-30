@@ -68,9 +68,9 @@ d(x, z) = z - mx - q
 It is easy to check that d = 0 if a point lays on the line of equation z = mx + q. 
 Then, the robot rotates on the spot until:
 
-d(x_front, z_front) = z_front - mx_front - q < ALIGNMENT_THRESHOLD
+d(x <sub>front</sub>, z<sub>front</sub>) = z<sub>front</sub> - mx<sub>front</sub> - q < ALIGNMENT_THRESHOLD
 
-where (x_front, z_front) are the coordinates of the front GPS on the XZ plane.
+where (x<sub>front</sub>, z<sub>front</sub>) are the coordinates of the front GPS on the XZ plane.
 The idea behind the previous formula is that the robot is aligned with the treasure when the coordinates of the front GPS belong to the line passing by the treasure and the back GPS, up to a certain threshold value.
 
 However, that's not enough, as the robot could have the right alignment but a wrong orientation.
